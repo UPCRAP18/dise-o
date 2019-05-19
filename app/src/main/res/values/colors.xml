@@ -3,4 +3,14 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="azul_fuerte">#1976d2</color>
+    <color name="azul_ligero">#63a4ff</color>
+    <color name="azul_marino">#004ba0</color>
+    <color name="morado_fuerte">#4a148c</color>
+    <color name="morado">#7c43bd</color>
+    <color name="indigo">#12005e</color>
+    <color name="azul_ligero_material">#dee9fc</color>
+    <color name="verde_limon">#defce0</color>
+
 </resources>
