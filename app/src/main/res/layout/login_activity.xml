@@ -118,7 +118,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/btnRegistrar"
+                android:id="@+id/btnRegistrar_Producto"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"

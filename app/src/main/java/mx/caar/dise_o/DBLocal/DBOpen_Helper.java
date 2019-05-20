@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
 
+import mx.caar.dise_o.Modelos.Producto;
 import mx.caar.dise_o.Modelos.Usuario;
 
 public class DBOpen_Helper extends SQLiteOpenHelper {
@@ -122,6 +123,81 @@ public class DBOpen_Helper extends SQLiteOpenHelper {
     public boolean dropUsr() {
         db = getWritableDatabase();
         if (db.delete(TABLE_PREFS, null, null) != 0) {
+            db.close();
+            return true;
+        } else {
+            db.close();
+            return false;
+        }
+
+    }
+
+
+    public ArrayList<Producto> getData_Carrito() {
+
+        Cursor res = getData(TABLE_PREFS);
+
+        ArrayList<Producto> productos = new ArrayList<>();
+
+        res.moveToFirst();
+
+        while (!res.isAfterLast()) {
+            Producto producto_actual = new Producto(res.getString(0),
+                    res.getString(1),
+                    res.getString(2),
+                    res.getString(3),
+                    res.getString(4));
+
+            productos.add(producto_actual);
+
+            res.moveToNext();
+        }
+
+        db.close();
+
+        return productos;
+
+    }
+
+    public boolean setDataCarrito(Producto producto) {
+        db = getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put(COLUMN_ID_PRODUCTO, producto.getId());
+        values.put(COLUMN_NOMBRE_PRODUCTO, producto.getNombre());
+        values.put(COLUMN_IMAGEN_PRODUCTO, producto.getImagen());
+        values.put(COLUMN_PRECIO_PRODUCTO, producto.getPrecio());
+
+
+        ArrayList<Producto> productos = getData_Carrito();
+        if(!productos.isEmpty()){
+            for (Producto prod : productos){
+                if(prod.getId().equals(producto.getId())){
+                    int cantPrevia = Integer.parseInt(prod.getCantidad());
+                    int cant_add = Integer.parseInt(producto.getCantidad());
+                    cantPrevia += cant_add;
+
+                    values.put(COLUMN_CANTIDAD_PRODUCTO, cantPrevia);
+                    break;
+                }
+            }
+        }else {
+            values.put(COLUMN_CANTIDAD_PRODUCTO, producto.getCantidad());
+        }
+
+        if (db.insert(TABLE_CARRITO, null, values) != 0) {
+            db.close();
+            return true;
+        } else {
+            db.close();
+            return false;
+        }
+
+    }
+
+    public boolean dropCarrito() {
+        db = getWritableDatabase();
+        if (db.delete(TABLE_CARRITO, null, null) != 0) {
             db.close();
             return true;
         } else {

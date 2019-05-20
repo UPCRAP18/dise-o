@@ -204,6 +204,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/azul_ligero_material"
+                android:onClick="cerrar_sesion"
                 android:text="Cerrar Sesion"
                 android:textColor="@android:color/holo_red_dark"
                 android:textSize="16sp" />
@@ -224,6 +225,7 @@
                 android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:background="@color/azul_ligero_material"
+                android:onClick="nuevo_producto"
                 android:text="Añadir Producto"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp" />
@@ -235,6 +237,7 @@
                 android:layout_margin="6dp"
                 android:layout_weight="1"
                 android:background="@color/azul_ligero_material"
+                android:onClick="actualizar"
                 android:text="Guardar Cambios"
                 android:textSize="16sp" />
 
@@ -246,6 +249,7 @@
             android:layout_height="42dp"
             android:layout_gravity="end"
             android:background="@android:color/transparent"
+            android:onClick="informacion_app"
             android:scaleType="centerCrop"
             app:srcCompat="@drawable/info" />
 

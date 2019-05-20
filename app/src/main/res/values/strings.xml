@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">Dise_O</string>
+
+    <string-array name="categorias">
+        <item>Ropa</item>
+        <item>Videojuegos</item>
+        <item>Tecnologia</item>
+        <item>Domesticos</item>
+        <item>Comida</item>
+        <item>Herramientas</item>
+    </string-array>
+
+    <string-array name="pago">
+        <item>Efectivo</item>
+        <item>Tarjeta</item>
+    </string-array>
+
 </resources>

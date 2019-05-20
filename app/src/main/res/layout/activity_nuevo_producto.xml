@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/market_bg"
+    tools:context=".NuevoProducto">
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Crear un nuevo producto"
+        android:textAlignment="center"
+        android:textColor="#D50000"
+        android:textSize="28sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textNombre"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Nombre"
+            android:textColor="#FF4081"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/etNombre_Prod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/textImagen"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Imagen"
+            android:textColor="#FF4081"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/etImagen_Prod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/txtAdvertencia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Nota: Por favor copiar la url de la imagen deseada."
+        android:textAlignment="center"
+        android:textColor="#FF5252"
+        android:textSize="18sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtPrecio"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Precio"
+            android:textColor="#FF4081"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/etPrecio_Prod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="numberDecimal" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtCategoria"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Categoria"
+            android:textColor="#FF4081"
+            android:textSize="22sp" />
+
+        <Spinner
+            android:id="@+id/spCategoria_Prod"
+            android:layout_width="0dp"
+            android:layout_height="38dp"
+            android:layout_weight="2"
+            android:ems="10"
+            android:entries="@array/categorias"
+            android:textAlignment="center" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtSubcat"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Subcategoria"
+            android:textColor="#FF4081"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/etSubcat_Prod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/txtStock"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Stock"
+            android:textColor="#FF4081"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/etStock_Prod"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:ems="10"
+            android:inputType="numberSigned" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnRegistrar_Producto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="#D1C4E9"
+        android:text="Registrar Producto" />
+</LinearLayout>

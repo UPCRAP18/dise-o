@@ -7,4 +7,138 @@
     android:background="@drawable/market_bg"
     tools:context=".DescripcionProducto">
 
+    <ImageView
+        android:id="@+id/imgProducto_Desc"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:srcCompat="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Descripcion del producto"
+        android:textColor="#283593"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgProducto_Desc" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView10">
+
+        <TextView
+            android:id="@+id/txtNombre_Desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nombre del Producto"
+            android:textAlignment="center"
+            android:textColor="#311B92"
+            android:textSize="22sp" />
+
+        <TextView
+            android:id="@+id/txtPrecio_Desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Precio $00.00"
+            android:textAlignment="center"
+            android:textColor="#311B92"
+            android:textSize="22sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txtCat_Desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Categoria"
+                android:textAlignment="center"
+                android:textColor="#004D40"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/txtSubCat_Desc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Subcategoria"
+                android:textAlignment="center"
+                android:textColor="#004D40"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/imgbMenos"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:onClick="quitarUno"
+                android:scaleType="fitCenter"
+                android:src="@drawable/minus" />
+
+            <TextView
+                android:id="@+id/txtCantProducto"
+                android:layout_width="84dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:gravity="center"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#DD2C00"
+                android:textSize="28sp" />
+
+            <ImageButton
+                android:id="@+id/imgbAdd"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@android:color/transparent"
+                android:onClick="addUno"
+                android:scaleType="fitCenter"
+                android:src="@drawable/plus" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnAddCarrito"
+            android:layout_width="160dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="12dp"
+            android:background="#FFCDD2"
+            android:gravity="center"
+            android:text="Añadir al carrito"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>

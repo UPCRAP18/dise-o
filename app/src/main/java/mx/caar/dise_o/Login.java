@@ -30,7 +30,7 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.login_activity);
 
         Button btnLogin = (Button) findViewById(R.id.btnLogin);
-        Button btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
+        Button btnRegistrar = (Button) findViewById(R.id.btnRegistrar_Producto);
 
         final EditText txteCorreo = (EditText) findViewById(R.id.txteCorreo);
         final EditText txtePwd = (EditText) findViewById(R.id.txtePwd);

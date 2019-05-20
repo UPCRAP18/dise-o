@@ -104,6 +104,7 @@ public class Inicio extends AppCompatActivity implements BottomNavigationView.On
             case R.id.nav_perfil:
                 Intent send_Perfil = new Intent(this, Perfil.class );
                 startActivity(send_Perfil);
+                this.finish();
                 break;
         }
         return false;
