@@ -1,5 +1,6 @@
 package mx.caar.dise_o;
 
+import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -21,7 +22,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+import java.util.Locale;
+
 import mx.caar.dise_o.DBLocal.DBOpen_Helper;
+import mx.caar.dise_o.Modelos.Producto;
 import mx.caar.dise_o.Requests.CreateCompraRequest;
 import mx.caar.dise_o.Requests.HistorialRequest;
 
@@ -32,6 +37,8 @@ public class Carrito extends AppCompatActivity implements AdapterView.OnItemSele
     RadioGroup rbgTarjetas;
     Spinner spPago;
     LinearLayout layTarjeta;
+    float total_pagar = 0;
+    ArrayList<Producto> productos = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +55,17 @@ public class Carrito extends AppCompatActivity implements AdapterView.OnItemSele
 
         DBOpen_Helper helper = new DBOpen_Helper(this);
         if(!helper.getData_Carrito().isEmpty()){
-            Adaptador_Carrito adaptadorCarrito = new Adaptador_Carrito(helper.getData_Carrito(), this);
+            productos = helper.getData_Carrito();
+
+            for (Producto producto : productos){
+                float precio = Float.parseFloat(producto.getPrecio());
+                int cantidad = Integer.parseInt(producto.getCantidad());
+
+                total_pagar += (precio*cantidad);
+
+            }
+            btnComprar.setText(String.format(Locale.getDefault(),"Comprar: $%.2f", total_pagar));
+            Adaptador_Carrito adaptadorCarrito = new Adaptador_Carrito(productos, this);
             lstCarrito.setAdapter(adaptadorCarrito);
         }else {
             AlertDialog.Builder message = new AlertDialog.Builder(this);
@@ -69,7 +86,13 @@ public class Carrito extends AppCompatActivity implements AdapterView.OnItemSele
                     if(success){
                         AlertDialog.Builder message = new AlertDialog.Builder(Carrito.this);
                         message.setMessage("La compra se ha realizado con exito");
-                        message.setPositiveButton("Aceptar", null);
+                        message.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                new DBOpen_Helper(Carrito.this).dropCarrito();
+                                Carrito.this.onBackPressed();
+                            }
+                        });
                         message.create().show();
                     }else {
                         AlertDialog.Builder message = new AlertDialog.Builder(Carrito.this);
@@ -92,7 +115,7 @@ public class Carrito extends AppCompatActivity implements AdapterView.OnItemSele
             @Override
             public void onClick(View v) {
 
-                CreateCompraRequest compraRequest = new CreateCompraRequest("","","", responseListener);
+                CreateCompraRequest compraRequest = new CreateCompraRequest(helper.getData_Usuario().getId(),String.valueOf(total_pagar), String.valueOf(productos.size()), responseListener);
 
                 RequestQueue queue = Volley.newRequestQueue(Carrito.this);
 

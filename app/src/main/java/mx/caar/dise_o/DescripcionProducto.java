@@ -79,14 +79,17 @@ public class DescripcionProducto extends AppCompatActivity {
     public void addCarrito(View view){
         DBOpen_Helper helper = new DBOpen_Helper(this);
 
-        Producto prod_add = new Producto(id, nombre, imagen, precio, String.valueOf(cantidad_producto));
+        if(cantidad_producto!= 0){
+            Producto prod_add = new Producto(id, nombre, imagen, precio, String.valueOf(cantidad_producto));
 
-        if(helper.setDataCarrito(prod_add)){
-            Toast.makeText(this, "Se ha añadido correctamente", Toast.LENGTH_SHORT).show();
+            if(helper.setDataCarrito(prod_add)){
+                Toast.makeText(this, "Se ha añadido correctamente", Toast.LENGTH_SHORT).show();
+            }else {
+                Toast.makeText(this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
+            }
         }else {
-            Toast.makeText(this, "Ha ocurrido un error", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "No puede agregar 0 items", Toast.LENGTH_SHORT).show();
         }
-
     }
 
     @Override

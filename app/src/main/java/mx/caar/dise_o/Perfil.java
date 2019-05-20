@@ -18,6 +18,7 @@ import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.VolleyError;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONArray;
@@ -62,8 +63,6 @@ public class Perfil extends AppCompatActivity {
         etCorreo.setText(usuario.getEmail());
         etNickname.setText(usuario.getNick());
 
-        ImageButton imgbInfo = (ImageButton) findViewById(R.id.imgbInfo);
-
         Response.Listener<String> responseListener = new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
@@ -75,7 +74,7 @@ public class Perfil extends AppCompatActivity {
 
                     if(success){
 
-                        JSONArray dataArray = data.getJSONArray("productos");
+                        JSONArray dataArray = data.getJSONArray("compras");
 
                         for (int i = 0; i < data.getInt("count"); i++){
                             JSONObject compra = dataArray.getJSONObject(i);
@@ -148,9 +147,11 @@ public class Perfil extends AppCompatActivity {
                     }else {
                         AlertDialog.Builder message = new AlertDialog.Builder(Perfil.this);
 
-                        message.setMessage("Ha ocurrido un erro en la request");
+                        message.setMessage("Ha ocurrido un error en la request");
                         message.setPositiveButton("Aceptar", null);
                         message.create().show();
+
+                        System.out.println(data.get("message"));
                     }
                 }catch (JSONException ex){
                     ex.printStackTrace();

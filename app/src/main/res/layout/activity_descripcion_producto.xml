@@ -136,6 +136,7 @@
             android:layout_margin="12dp"
             android:background="#FFCDD2"
             android:gravity="center"
+            android:onClick="addCarrito"
             android:text="Añadir al carrito"
             android:textSize="18sp" />
 

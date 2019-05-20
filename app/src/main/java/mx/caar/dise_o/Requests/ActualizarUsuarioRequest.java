@@ -15,7 +15,7 @@ public class ActualizarUsuarioRequest extends StringRequest {
     private Map<String,String> params;
 
     public ActualizarUsuarioRequest(Usuario user, Response.Listener<String> listener){
-        super(Request.Method.POST, UPDATE_REQUEST_URL, listener, null);
+        super(Method.POST, UPDATE_REQUEST_URL, listener, null);
         params = new HashMap<>();
         params.put("id", user.getId());
         params.put("nombre", user.getNombre());

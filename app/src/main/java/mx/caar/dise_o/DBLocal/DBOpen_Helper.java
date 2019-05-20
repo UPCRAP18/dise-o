@@ -135,7 +135,7 @@ public class DBOpen_Helper extends SQLiteOpenHelper {
 
     public ArrayList<Producto> getData_Carrito() {
 
-        Cursor res = getData(TABLE_PREFS);
+        Cursor res = getData(TABLE_CARRITO);
 
         ArrayList<Producto> productos = new ArrayList<>();
 
@@ -160,8 +160,8 @@ public class DBOpen_Helper extends SQLiteOpenHelper {
     }
 
     public boolean setDataCarrito(Producto producto) {
+        ArrayList<Producto> productos = getData_Carrito();
         db = getWritableDatabase();
-
         ContentValues values = new ContentValues();
         values.put(COLUMN_ID_PRODUCTO, producto.getId());
         values.put(COLUMN_NOMBRE_PRODUCTO, producto.getNombre());
@@ -169,7 +169,6 @@ public class DBOpen_Helper extends SQLiteOpenHelper {
         values.put(COLUMN_PRECIO_PRODUCTO, producto.getPrecio());
 
 
-        ArrayList<Producto> productos = getData_Carrito();
         if(!productos.isEmpty()){
             for (Producto prod : productos){
                 if(prod.getId().equals(producto.getId())){
